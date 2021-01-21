@@ -1,8 +1,23 @@
+let exclude_ids;
+document.addEventListener('DOMContentLoaded', function () {
+    class webConnector extends XMLHttpRequest{
+        constructor(){
+            super();
+            this.addEventListener('load', function () {
+                exclude_ids = this.responseText.split("\n"); // 配列として読み込む
+            }, false); //通信成功時処理
+        }
+    }
+    let xhr = new webConnector();
+    let url = "exclude_ids.txt";
+    xhr.open("GET", url);
+    xhr.url = url;
+    xhr.send(null);
+}, false);
+
 $('.cardgame-deck').on('click', function(){
     const cid_min = 4007;  // cidの（おそらく）最小値。青眼の白龍のcid。
     const cid_max = 16041;  // 2021/1/21時点でのcidの（おそらく）最大値。福悲喜のcid。
-    const exclude_ids = [];
-    exclude_ids.push(6561, 6826, 6827, 6828, 6829, 15932, 15936);
     
     let cid_random;
     do{
