@@ -1,7 +1,11 @@
 $('.cardgame-deck').on('click', function(){
     const cid_min = 4007;  // cidの（おそらく）最小値。青眼の白龍のcid。
     const cid_max = 16041;  // 2021/1/21時点でのcidの（おそらく）最大値。福悲喜のcid。
-    const exclude_ids = [6561, 15932, 15936];
+    const exclude_ids = [];
+    exclude_ids.push(6561);
+    exclude_ids.push(6826, 6827, 6828, 6829, 15932, 15936);
+
+    console.log(exclude_ids);
     let cid_random;
     do{
         // ランダムなcidを生成。
