@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 $('.cardgame-deck').on('click', function(){
     $.when(
-        $('#fullOverlay').show(),    // 画面をロックする。
-        $("#spinner").prepend('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>')
+        // $('#fullOverlay').show(),    // 画面をロックする。
+        // $("#spinner").prepend('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>')
 	).done(function() {
         const cid_min = 4007;  // cidの（おそらく）最小値。青眼の白龍のcid。
         const cid_max = 16041;  // 2021/1/21時点でのcidの（おそらく）最大値。福悲喜のcid。
@@ -42,8 +42,8 @@ $('.cardgame-deck').on('click', function(){
 
         let sleep_time = 2*1000;    // 待機時間
         sleep(sleep_time, function() {
-            $(".spinner-border").remove();
-            $('#fullOverlay').hide();
+            // $(".spinner-border").remove();
+            // $('#fullOverlay').hide();
             let window_A = window.open(result_url);
         });
     });
