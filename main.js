@@ -1,5 +1,5 @@
 let exclude_ids;    // 除外するcidの配列。
-let result_url;
+let result_url; // 遷移先のURL。
 const base_url = "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid="    // 基準となるURL。
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
     xhr.send(null);
 }, false);
 
-$('.cardgame-deck').on('click', function(){
+function random_display(){
     $.when(
         $('#fullOverlay').show(),    // 画面をロックする。
         $("#spinner").prepend('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>')
@@ -42,14 +42,22 @@ $('.cardgame-deck').on('click', function(){
 
         let sleep_time = 2*1000;    // 待機時間
         sleep(sleep_time, function() {
-            if(window.open(result_url,"_blank")){
+            // if(window.open(result_url,"_blank")){
                 
-            }else{
-              window.location.href = result_url;
-            }
+            // }else{
+            //   window.location.href = result_url;
+            // }
             $(".spinner-border").remove();
-            $('#fullOverlay').hide();
+            $("#fullOverlay").hide();
+            $("#card-link").attr("href", result_url);   // card-linkのhrefにURLをセット。
         });
     });
-    
+};
+
+window.onload = function(){
+    random_display();
+};
+
+$('#card-link').on('click', function(){
+    random_display();
 });

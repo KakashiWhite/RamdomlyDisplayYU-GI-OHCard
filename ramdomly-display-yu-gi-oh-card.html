@@ -10,7 +10,7 @@
     <body>
         <div id="fullOverlay" style="display: none;">
             <div class="text">
-                検索中
+                読み込み中
                 <div id="spinner"></div>
             </div>
         </div>
@@ -18,12 +18,14 @@
         <h3 style="text-align: center;">ドローするシステム</h3>
         <div class="p-3" style="text-align: center;">画像をクリックすると新しいタブで<br>ランダムな遊戯王カードのページを開きます。</div>
         <div class="p-3">
-            <div class="card-box">
-                <div class="card mx-auto cardgame-deck" style="width: 10rem;">
-                    <img class="card-img-top" src="img/cardgame_deck.png" alt="デッキ画像">
-                    <h4 class="card-title" style="text-align: center;">ドロー！</h4>
+            <a id="card-link" href="#"  target="_blank" rel="noopener noreferrer">
+                <div class="card-box">
+                    <div class="card mx-auto cardgame-deck" style="width: 10rem;">
+                        <img class="card-img-top" src="img/cardgame_deck.png" alt="デッキ画像">
+                        <h4 class="card-title" style="text-align: center;">ドロー！</h4>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         <div style="text-align: center;">
             ↓ドローしたカード・感想などの共有はこちら↓<br>
