@@ -36,7 +36,7 @@ $('.cardgame-deck').on('click', function(){
         };
 
         const base_url = "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid="    // 基準となるURL。
-        let sleep_time = 2*1000;    // 待機時間
+        let sleep_time = 1*1000;    // 待機時間
         sleep(sleep_time, function() {
             let window_A = window.open(base_url + cid_random);
             $(".spinner-border").remove();
