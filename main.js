@@ -26,5 +26,13 @@ $('.cardgame-deck').on('click', function(){
     }while(exclude_ids.some( num => num === cid_random));   // 情報がないcidだった場合は再算出。
     
     const base_url = "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid="
-    let window_A = window.open(base_url + cid_random);
+    
+    function sleep(ms, func) {
+        setTimeout(func, ms);
+    };
+
+    sleep(1*1000, function() {
+        let window_A = window.open(base_url + cid_random);
+    });
+
 });
