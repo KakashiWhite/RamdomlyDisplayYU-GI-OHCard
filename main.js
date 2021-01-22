@@ -1,4 +1,7 @@
 let exclude_ids;    // 除外するcidの配列。
+let result_url;
+const base_url = "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid="    // 基準となるURL。
+
 document.addEventListener('DOMContentLoaded', function () {
     class webConnector extends XMLHttpRequest{
         constructor(){
@@ -31,17 +34,17 @@ $('.cardgame-deck').on('click', function(){
             counter ++;
         }while(exclude_ids.some( num => num === cid_random) || counter < counter_max);   // 情報がないcidだった場合は再算出。
         
+        result_url = base_url + cid_random;
+        
         function sleep(ms, func) {
             setTimeout(func, ms);
         };
 
-        const base_url = "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid="    // 基準となるURL。
         let sleep_time = 2*1000;    // 待機時間
         sleep(sleep_time, function() {
             $(".spinner-border").remove();
             $('#fullOverlay').hide();
+            let window_A = window.open(result_url);
         });
-    }).done(function(){
-        let window_A = window.open(base_url + cid_random);
     });
 });
