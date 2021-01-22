@@ -54,9 +54,9 @@ function random_display(){
     });
 };
 
-window.onload = function(){
+$(document).ready(function(){
     random_display();
-};
+});
 
 $('#card-link').on('click', function(){
     random_display();
