@@ -42,14 +42,13 @@ $('.cardgame-deck').on('click', function(){
 
         let sleep_time = 2*1000;    // 待機時間
         sleep(sleep_time, function() {
-            $(".spinner-border").remove();
-            $('#fullOverlay').hide();
-            // let window_A = window.open(result_url);
             if(window.open(result_url,"_blank")){
                 
             }else{
               window.location.href = result_url;
             }
+            $(".spinner-border").remove();
+            $('#fullOverlay').hide();
         });
     });
     
