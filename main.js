@@ -2,22 +2,6 @@
 let result_url; // 遷移先のURL。
 const base_url = "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid="    // 基準となるURL。
 
-// document.addEventListener('DOMContentLoaded', function () {
-//     class webConnector extends XMLHttpRequest{
-//         constructor(){
-//             super();
-//             this.addEventListener('load', function () {
-//                 exclude_ids = this.responseText.split("\n"); // 配列として読み込む。
-//             }, false); //通信成功時処理。
-//         }
-//     }
-//     let xhr = new webConnector();
-//     let url = "exclude_ids.txt";
-//     xhr.open("GET", url);
-//     xhr.url = url;
-//     xhr.send(null);
-// }, false);
-
 function random_display(){
     $.when(
         $('#fullOverlay').show(),    // 画面をロックする。
@@ -62,6 +46,7 @@ $('#card-link').on('click', function(){
     random_display();
 });
 
+// 除外するカードID
 let exclude_ids = [
     4995,
     5190,
