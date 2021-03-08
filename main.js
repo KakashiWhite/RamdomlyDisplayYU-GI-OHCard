@@ -2,21 +2,21 @@ let exclude_ids;    // 除外するcidの配列。
 let result_url; // 遷移先のURL。
 const base_url = "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid="    // 基準となるURL。
 
-document.addEventListener('DOMContentLoaded', function () {
-    class webConnector extends XMLHttpRequest{
-        constructor(){
-            super();
-            this.addEventListener('load', function () {
-                exclude_ids = this.responseText.split("\n"); // 配列として読み込む。
-            }, false); //通信成功時処理。
-        }
-    }
-    let xhr = new webConnector();
-    let url = "exclude_ids.txt";
-    xhr.open("GET", url);
-    xhr.url = url;
-    xhr.send(null);
-}, false);
+// document.addEventListener('DOMContentLoaded', function () {
+//     class webConnector extends XMLHttpRequest{
+//         constructor(){
+//             super();
+//             this.addEventListener('load', function () {
+//                 exclude_ids = this.responseText.split("\n"); // 配列として読み込む。
+//             }, false); //通信成功時処理。
+//         }
+//     }
+//     let xhr = new webConnector();
+//     let url = "exclude_ids.txt";
+//     xhr.open("GET", url);
+//     xhr.url = url;
+//     xhr.send(null);
+// }, false);
 
 function random_display(){
     $.when(
@@ -55,6 +55,19 @@ function random_display(){
 };
 
 window.onload = function(){
+    class webConnector extends XMLHttpRequest{
+        constructor(){
+            super();
+            this.addEventListener('load', function () {
+                exclude_ids = this.responseText.split("\n"); // 配列として読み込む。
+            }, false); //通信成功時処理。
+        }
+    }
+    let xhr = new webConnector();
+    let url = "exclude_ids.txt";
+    xhr.open("GET", url);
+    xhr.url = url;
+    xhr.send(null);
     random_display();
 };
 
