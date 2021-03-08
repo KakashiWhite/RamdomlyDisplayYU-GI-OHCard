@@ -2,23 +2,7 @@ let exclude_ids;    // 除外するcidの配列。
 let result_url; // 遷移先のURL。
 const base_url = "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid="    // 基準となるURL。
 
-// document.addEventListener('DOMContentLoaded', function () {
-//     class webConnector extends XMLHttpRequest{
-//         constructor(){
-//             super();
-//             this.addEventListener('load', function () {
-//                 exclude_ids = this.responseText.split("\n"); // 配列として読み込む。
-//             }, false); //通信成功時処理。
-//         }
-//     }
-//     let xhr = new webConnector();
-//     let url = "exclude_ids.txt";
-//     xhr.open("GET", url);
-//     xhr.url = url;
-//     xhr.send(null);
-// }, false);
-
-window.onload = function(){
+document.addEventListener('DOMContentLoaded', function () {
     class webConnector extends XMLHttpRequest{
         constructor(){
             super();
@@ -32,8 +16,7 @@ window.onload = function(){
     xhr.open("GET", url);
     xhr.url = url;
     xhr.send(null);
-    random_display();
-};
+}, false);
 
 function random_display(){
     $.when(
@@ -41,7 +24,7 @@ function random_display(){
         $("#spinner").prepend('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>')
 	).done(function() {
         const cid_min = 4007;  // cidの（おそらく）最小値。青眼の白龍のcid。
-        const cid_max = 16041;  // 2021/1/21時点でのcidの（おそらく）最大値。福悲喜のcid。
+        const cid_max = 16109;  // 2021/3/8時点でのcidの（おそらく）最大値。「ベアルクティ・クィントチャージ」のcid。
         
         let cid_random;
         let counter=0;  // do-while文の実行回数。
@@ -69,6 +52,10 @@ function random_display(){
             $("#card-link").attr("href", result_url);   // card-linkのhrefにURLをセット。
         });
     });
+};
+
+window.onload = function(){
+    random_display();
 };
 
 $('#card-link').on('click', function(){
