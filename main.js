@@ -1,22 +1,22 @@
-let exclude_ids;    // 除外するcidの配列。
+// let exclude_ids;    // 除外するcidの配列。
 let result_url; // 遷移先のURL。
 const base_url = "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid="    // 基準となるURL。
 
-document.addEventListener('DOMContentLoaded', function () {
-    class webConnector extends XMLHttpRequest{
-        constructor(){
-            super();
-            this.addEventListener('load', function () {
-                exclude_ids = this.responseText.split("\n"); // 配列として読み込む。
-            }, false); //通信成功時処理。
-        }
-    }
-    let xhr = new webConnector();
-    let url = "exclude_ids.txt";
-    xhr.open("GET", url);
-    xhr.url = url;
-    xhr.send(null);
-}, false);
+// document.addEventListener('DOMContentLoaded', function () {
+//     class webConnector extends XMLHttpRequest{
+//         constructor(){
+//             super();
+//             this.addEventListener('load', function () {
+//                 exclude_ids = this.responseText.split("\n"); // 配列として読み込む。
+//             }, false); //通信成功時処理。
+//         }
+//     }
+//     let xhr = new webConnector();
+//     let url = "exclude_ids.txt";
+//     xhr.open("GET", url);
+//     xhr.url = url;
+//     xhr.send(null);
+// }, false);
 
 function random_display(){
     $.when(
@@ -61,3 +61,31 @@ window.onload = function(){
 $('#card-link').on('click', function(){
     random_display();
 });
+
+let exclude_ids = [
+    4995,
+    5190,
+    5228,
+    5466,
+    5941,
+    6011,
+    6017,
+    6459,
+    6462,
+    6552,
+    6561,
+    6787,
+    6826,
+    6828,
+    6829,
+    8890,
+    9014,
+    9077,
+    11674,
+    11675,
+    15356,
+    15599,
+    15825,
+    15932,
+    15936
+];
