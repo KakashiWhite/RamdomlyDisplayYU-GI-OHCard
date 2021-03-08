@@ -18,6 +18,23 @@ const base_url = "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope
 //     xhr.send(null);
 // }, false);
 
+window.onload = function(){
+    class webConnector extends XMLHttpRequest{
+        constructor(){
+            super();
+            this.addEventListener('load', function () {
+                exclude_ids = this.responseText.split("\n"); // 配列として読み込む。
+            }, false); //通信成功時処理。
+        }
+    }
+    let xhr = new webConnector();
+    let url = "exclude_ids.txt";
+    xhr.open("GET", url);
+    xhr.url = url;
+    xhr.send(null);
+    random_display();
+};
+
 function random_display(){
     $.when(
         $('#fullOverlay').show(),    // 画面をロックする。
@@ -52,23 +69,6 @@ function random_display(){
             $("#card-link").attr("href", result_url);   // card-linkのhrefにURLをセット。
         });
     });
-};
-
-window.onload = function(){
-    class webConnector extends XMLHttpRequest{
-        constructor(){
-            super();
-            this.addEventListener('load', function () {
-                exclude_ids = this.responseText.split("\n"); // 配列として読み込む。
-            }, false); //通信成功時処理。
-        }
-    }
-    let xhr = new webConnector();
-    let url = "exclude_ids.txt";
-    xhr.open("GET", url);
-    xhr.url = url;
-    xhr.send(null);
-    random_display();
 };
 
 $('#card-link').on('click', function(){
