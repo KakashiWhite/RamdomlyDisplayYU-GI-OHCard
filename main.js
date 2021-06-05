@@ -8,7 +8,7 @@ function random_display(){
         $("#spinner").prepend('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>')
 	).done(function() {
         const cid_min = 4007;  // cidの（おそらく）最小値。青眼の白龍のcid。
-        const cid_max = 16109;  // 2021/3/8時点でのcidの（おそらく）最大値。「ベアルクティ・クィントチャージ」のcid。
+        const cid_max = 16396;  // 2021/6/5時点でのcidの（おそらく）最大値。「LL－比翼の麗鳥」のcid。
         
         let cid_random;
         let counter=0;  // do-while文の実行回数。
