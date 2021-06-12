@@ -1,3 +1,3 @@
-# RamdomlyDisplayYU-GI-OHCard
+<h2 align="center">RamdomlyDisplayYU-GI-OHCard</h2>
 ## 遊戯王カードをランダムで表示するシステムです。
-### 使用画像はいらすとやの画像です。
+## システムのページはこちらです。
