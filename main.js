@@ -8,7 +8,7 @@ function random_display(){
         $("#spinner").prepend('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>')
 	).done(function() {
         const cid_min = 4007;  // cidの（おそらく）最小値。青眼の白龍のcid。
-        const cid_max = 17482;  // 2022/5/6時点でのcidの（おそらく）最大値。「砂塵の大ハリケーン」のcid。
+        const cid_max = 18027;  // 2022/9/1時点でのcidの（おそらく）最大値。「若い忍者」のcid。
         
         let cid_random;
         let counter=0;  // do-while文の実行回数。
